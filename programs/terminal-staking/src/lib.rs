@@ -3,7 +3,7 @@ use anchor_spl::token::{self, Token, TokenAccount, Mint};
 use mpl_core::{
     ID as MPL_CORE_ID,
     fetch_plugin,
-    accounts::{BaseAssetV1, BaseCollectionV1}, 
+    accounts::BaseAssetV1, 
     instructions::{AddPluginV1CpiBuilder, RemovePluginV1CpiBuilder, UpdatePluginV1CpiBuilder}, 
     types::{Attribute, Attributes, FreezeDelegate, Plugin, PluginAuthority, PluginType, UpdateAuthority}, 
 };
@@ -12,8 +12,6 @@ declare_id!("Zkc1y5YhcFi82Q6wmLjfreQd2nsS1eWBcxWVn3KCrP7");
 
 // Reward rate: 1 $GOR per hour (3600 seconds)
 const REWARD_RATE_PER_SECOND: u64 = 277_778; // 1 token with 6 decimals per hour / 3600 seconds ≈ 277,778 micro-tokens per second
-const SECONDS_PER_HOUR: u64 = 3600;
-const MIN_REWARD_DURATION: i64 = 60; // Minimum 1 minute to claim rewards
 
 #[program]
 pub mod terminal_staking {
