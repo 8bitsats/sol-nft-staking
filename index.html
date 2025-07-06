@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana NFT Staking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: #0a0a0a;
+            color: #00ff00;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .terminal-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .terminal-header {
+            background: #1a1a1a;
+            border: 2px solid #00ff00;
+            border-radius: 10px 10px 0 0;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .terminal-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f5f;
+        }
+
+        .terminal-control:nth-child(2) {
+            background: #ffff5f;
+        }
+
+        .terminal-control:nth-child(3) {
+            background: #5fff5f;
+        }
+
+        .terminal-title {
+            color: #00ff00;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .terminal-body {
+            background: #1a1a1a;
+            border: 2px solid #00ff00;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .terminal-prompt {
+            color: #00ff00;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+        }
+
+        .blinking-cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: rgba(0, 255, 0, 0.02);
+        }
+
+        .section h2 {
+            color: #00ffff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .section h2::before {
+            content: '> ';
+            color: #ff00ff;
+        }
+
+        .wallet-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .terminal-button {
+            background: linear-gradient(45deg, #00ff00, #00ffff);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .terminal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+        }
+
+        .terminal-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .wallet-info {
+            color: #ffff00;
+            font-size: 1rem;
+            margin-top: 1rem;
+            text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(0, 255, 0, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00ffff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .nft-card {
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        }
+
+        .nft-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+            border-color: #00ffff;
+        }
+
+        .nft-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #00ff00;
+        }
+
+        .nft-info {
+            padding: 1.5rem;
+        }
+
+        .nft-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #00ffff;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .nft-status {
+            font-size: 0.9rem;
+            color: #ffff00;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+        }
+
+        .stake-button {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .stake-button.stake {
+            color: #00ff00;
+            border-color: #00ff00;
+        }
+
+        .stake-button.stake:hover {
+            background: rgba(0, 255, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .stake-button.unstake {
+            color: #ff5555;
+            border-color: #ff5555;
+        }
+
+        .stake-button.unstake:hover {
+            background: rgba(255, 85, 85, 0.1);
+            box-shadow: 0 0 15px rgba(255, 85, 85, 0.5);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #ffff00;
+            font-style: italic;
+        }
+
+        .loading::before {
+            content: '[LOADING] ';
+            color: #ff00ff;
+        }
+
+        .error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff5555;
+            padding: 1rem;
+            border: 1px solid #ff5555;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .error::before {
+            content: '[ERROR] ';
+            color: #ff0000;
+            font-weight: 700;
+        }
+
+        .success {
+            background: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+            padding: 1rem;
+            border: 1px solid #00ff00;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .success::before {
+            content: '[SUCCESS] ';
+            color: #00ff00;
+            font-weight: 700;
+        }
+
+        .info {
+            background: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+            padding: 1rem;
+            border: 1px solid #00ffff;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .info::before {
+            content: '[INFO] ';
+            color: #00ffff;
+            font-weight: 700;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .terminal-container {
+                padding: 1rem;
+            }
+            
+            .nft-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff00;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <div class="terminal-control"></div>
+                <div class="terminal-control"></div>
+                <div class="terminal-control"></div>
+            </div>
+            <div class="terminal-title">sol-nft-staking@terminal:~$</div>
+        </div>
+
+        <div class="terminal-body">
+            <div class="terminal-prompt">
+                root@solana:~$ ./nft-staking-system --initialize<span class="blinking-cursor">_</span>
+            </div>
+
+            <!-- Wallet Connection Section -->
+            <div class="section wallet-section">
+                <h2>Wallet Connection</h2>
+                <button id="connectWallet" class="terminal-button">
+                    Initialize Wallet Connection
+                </button>
+                <div id="walletInfo" style="display: none;" class="wallet-info"></div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="section">
+                <h2>System Status</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalNFTs">0</div>
+                        <div class="stat-label">Total NFTs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stakedNFTs">0</div>
+                        <div class="stat-label">Staked NFTs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalRewards">0</div>
+                        <div class="stat-label">Total Rewards</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stakingTime">0</div>
+                        <div class="stat-label">Days Staking</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NFT Management Section -->
+            <div class="two-column">
+                <div class="section">
+                    <h2>Available Assets</h2>
+                    <div id="availableNFTs" class="nft-grid">
+                        <div class="loading">Scanning for available NFT assets...</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Staked Assets</h2>
+                    <div id="stakedNFTsGrid" class="nft-grid">
+                        <div class="loading">No staked assets detected</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="messages"></div>
+        </div>
+    </div>
+
+    <elevenlabs-convai agent-id="agent_01jyqnyjhjf209zwa369bwn9s2"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script>
+        // Global state
+        let walletAdapter = null;
+        let connection = null;
+        let publicKey = null;
+        let nfts = [];
+        let stakedNFTs = [];
+
+        // Initialize connection
+        const RPC_URL = 'https://mainnet.helius-rpc.com/?api-key=6b52d42b-5d24-4841-a093-02b0d2cc9fc0';
+        connection = new solanaWeb3.Connection(RPC_URL, 'confirmed');
+
+        // DOM elements
+        const connectButton = document.getElementById('connectWallet');
+        const walletInfo = document.getElementById('walletInfo');
+        const availableNFTsDiv = document.getElementById('availableNFTs');
+        const stakedNFTsDiv = document.getElementById('stakedNFTsGrid');
+        const messagesDiv = document.getElementById('messages');
+
+        // Wallet connection
+        connectButton.addEventListener('click', async () => {
+            try {
+                if (typeof window.solana !== 'undefined' && window.solana.isPhantom) {
+                    const response = await window.solana.connect();
+                    publicKey = response.publicKey;
+                    
+                    updateWalletInfo();
+                    await loadNFTs();
+                    
+                    connectButton.textContent = 'Connection Established';
+                    connectButton.disabled = true;
+                    
+                    showMessage('Wallet connection established successfully', 'success');
+                } else {
+                    showMessage('Please install Phantom wallet', 'error');
+                }
+            } catch (error) {
+                console.error('Error connecting wallet:', error);
+                showMessage('Failed to connect wallet', 'error');
+            }
+        });
+
+        function updateWalletInfo() {
+            if (publicKey) {
+                walletInfo.innerHTML = `
+                    <strong>[WALLET]</strong> ${publicKey.toString().slice(0, 8)}...${publicKey.toString().slice(-8)} <strong>[ACTIVE]</strong>
+                `;
+                walletInfo.style.display = 'block';
+            }
+        }
+
+        async function loadNFTs() {
+            if (!publicKey) return;
+
+            try {
+                availableNFTsDiv.innerHTML = '<div class="loading">Scanning blockchain for NFT assets...</div>';
+                
+                // This is a simplified mock implementation
+                // In a real app, you would fetch actual NFTs from the blockchain
+                const mockNFTs = [
+                    {
+                        id: '1',
+                        name: 'Terminal NFT #001',
+                        image: 'https://via.placeholder.com/200x200/00ff00/000000?text=TERM-001',
+                        isStaked: false,
+                        stakedTime: 0
+                    },
+                    {
+                        id: '2',
+                        name: 'Cyber Asset #042',
+                        image: 'https://via.placeholder.com/200x200/00ffff/000000?text=CYBER-042',
+                        isStaked: false,
+                        stakedTime: 0
+                    },
+                    {
+                        id: '3',
+                        name: 'Matrix Token #256',
+                        image: 'https://via.placeholder.com/200x200/ff00ff/000000?text=MATRIX-256',
+                        isStaked: true,
+                        stakedTime: Date.now() - (2 * 24 * 60 * 60 * 1000) // 2 days ago
+                    }
+                ];
+
+                nfts = mockNFTs.filter(nft => !nft.isStaked);
+                stakedNFTs = mockNFTs.filter(nft => nft.isStaked);
+
+                renderNFTs();
+                updateStats();
+                
+            } catch (error) {
+                console.error('Error loading NFTs:', error);
+                showMessage('Failed to load NFTs', 'error');
+            }
+        }
+
+        function renderNFTs() {
+            // Render available NFTs
+            if (nfts.length === 0) {
+                availableNFTsDiv.innerHTML = '<div class="loading">No available assets detected</div>';
+            } else {
+                availableNFTsDiv.innerHTML = nfts.map(nft => `
+                    <div class="nft-card">
+                        <img src="${nft.image}" alt="${nft.name}" class="nft-image">
+                        <div class="nft-info">
+                            <div class="nft-name">${nft.name}</div>
+                            <div class="nft-status">[STATUS: READY]</div>
+                            <button class="stake-button stake" onclick="stakeNFT('${nft.id}')">
+                                Execute Stake
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Render staked NFTs
+            if (stakedNFTs.length === 0) {
+                stakedNFTsDiv.innerHTML = '<div class="loading">No staked assets detected</div>';
+            } else {
+                stakedNFTsDiv.innerHTML = stakedNFTs.map(nft => {
+                    const stakingDays = Math.floor((Date.now() - nft.stakedTime) / (24 * 60 * 60 * 1000));
+                    return `
+                        <div class="nft-card">
+                            <img src="${nft.image}" alt="${nft.name}" class="nft-image">
+                            <div class="nft-info">
+                                <div class="nft-name">${nft.name}</div>
+                                <div class="nft-status">[STAKED: ${stakingDays}d]</div>
+                                <button class="stake-button unstake" onclick="unstakeNFT('${nft.id}')">
+                                    Execute Unstake
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('totalNFTs').textContent = nfts.length + stakedNFTs.length;
+            document.getElementById('stakedNFTs').textContent = stakedNFTs.length;
+            
+            // Calculate total rewards (mock calculation)
+            const totalRewards = stakedNFTs.reduce((acc, nft) => {
+                const stakingDays = Math.floor((Date.now() - nft.stakedTime) / (24 * 60 * 60 * 1000));
+                return acc + (stakingDays * 0.1); // 0.1 reward per day
+            }, 0);
+            
+            document.getElementById('totalRewards').textContent = totalRewards.toFixed(2);
+            
+            // Calculate average staking time
+            const avgStakingTime = stakedNFTs.length > 0 ? 
+                stakedNFTs.reduce((acc, nft) => {
+                    const stakingDays = Math.floor((Date.now() - nft.stakedTime) / (24 * 60 * 60 * 1000));
+                    return acc + stakingDays;
+                }, 0) / stakedNFTs.length : 0;
+            
+            document.getElementById('stakingTime').textContent = Math.floor(avgStakingTime);
+        }
+
+        async function stakeNFT(nftId) {
+            try {
+                showMessage('Executing stake transaction...', 'info');
+                
+                // Find the NFT
+                const nftIndex = nfts.findIndex(nft => nft.id === nftId);
+                if (nftIndex === -1) return;
+                
+                const nft = nfts[nftIndex];
+                
+                // In a real implementation, you would:
+                // 1. Create a transaction to stake the NFT
+                // 2. Sign and send the transaction
+                // 3. Wait for confirmation
+                
+                // Mock staking process
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Move NFT from available to staked
+                nft.isStaked = true;
+                nft.stakedTime = Date.now();
+                stakedNFTs.push(nft);
+                nfts.splice(nftIndex, 1);
+                
+                renderNFTs();
+                updateStats();
+                
+                showMessage(`Asset ${nft.name} successfully staked to protocol`, 'success');
+                
+            } catch (error) {
+                console.error('Error staking NFT:', error);
+                showMessage('Transaction failed: Unable to stake asset', 'error');
+            }
+        }
+
+        async function unstakeNFT(nftId) {
+            try {
+                showMessage('Executing unstake transaction...', 'info');
+                
+                // Find the NFT
+                const nftIndex = stakedNFTs.findIndex(nft => nft.id === nftId);
+                if (nftIndex === -1) return;
+                
+                const nft = stakedNFTs[nftIndex];
+                
+                // In a real implementation, you would:
+                // 1. Create a transaction to unstake the NFT
+                // 2. Sign and send the transaction
+                // 3. Wait for confirmation
+                
+                // Mock unstaking process
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Calculate rewards
+                const stakingDays = Math.floor((Date.now() - nft.stakedTime) / (24 * 60 * 60 * 1000));
+                const rewards = stakingDays * 0.1;
+                
+                // Move NFT from staked to available
+                nft.isStaked = false;
+                nft.stakedTime = 0;
+                nfts.push(nft);
+                stakedNFTs.splice(nftIndex, 1);
+                
+                renderNFTs();
+                updateStats();
+                
+                showMessage(`Asset ${nft.name} unstaked successfully | Rewards: ${rewards.toFixed(2)} tokens`, 'success');
+                
+            } catch (error) {
+                console.error('Error unstaking NFT:', error);
+                showMessage('Transaction failed: Unable to unstake asset', 'error');
+            }
+        }
+
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type;
+            messageDiv.textContent = message;
+            messagesDiv.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if wallet is already connected
+            if (typeof window.solana !== 'undefined' && window.solana.isPhantom) {
+                window.solana.connect({ onlyIfTrusted: true }).then(response => {
+                    if (response.publicKey) {
+                        publicKey = response.publicKey;
+                        updateWalletInfo();
+                        loadNFTs();
+                        connectButton.textContent = 'Connection Established';
+                        connectButton.disabled = true;
+                    }
+                }).catch(() => {
+                    // User not connected
+                });
+            }
+        });
+    </script>
+</body>
+</html>
