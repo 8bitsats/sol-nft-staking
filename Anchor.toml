@@ -1,3 +1,6 @@
+[toolchain]
+anchor_version = "0.31.1"
+
 [programs.localnet]
 sol_nft_staking = "3zPPaZhN3tAkSJhjcEcyT7kAM6b2stQmJf65Fw9sMZa3"
 
