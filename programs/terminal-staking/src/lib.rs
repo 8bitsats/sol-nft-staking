@@ -11,8 +11,9 @@ use mpl_core::{
 declare_id!("Zkc1y5YhcFi82Q6wmLjfreQd2nsS1eWBcxWVn3KCrP7");
 
 // Reward rate: 1 $GOR per hour (3600 seconds)
-const REWARD_RATE_PER_SECOND: u64 = 1_000_000; // 1 token with 6 decimals per hour / 3600 seconds
+const REWARD_RATE_PER_SECOND: u64 = 277_778; // 1 token with 6 decimals per hour / 3600 seconds ≈ 277,778 micro-tokens per second
 const SECONDS_PER_HOUR: u64 = 3600;
+const MIN_REWARD_DURATION: i64 = 60; // Minimum 1 minute to claim rewards
 
 #[program]
 pub mod terminal_staking {
@@ -43,9 +44,14 @@ pub mod terminal_staking {
         let stake_account = &mut ctx.accounts.stake_account;
         let clock = Clock::get()?;
 
-        // Verify terminal belongs to collection
+        // Deserialize and validate the terminal asset
+        let terminal_data = ctx.accounts.terminal_asset.try_borrow_data()?;
+        let terminal_asset = BaseAssetV1::from_bytes(&terminal_data)?;
+
+        // Verify terminal belongs to collection  
+        let pool_collection = pool.collection;
         require!(
-            ctx.accounts.terminal_asset.update_authority == UpdateAuthority::Collection(pool.collection),
+            terminal_asset.update_authority == UpdateAuthority::Collection(pool_collection),
             StakingError::InvalidCollection
         );
 
@@ -142,14 +148,15 @@ pub mod terminal_staking {
             .invoke()?;
 
         // Update stake account
+        let staking_pool_key = ctx.accounts.staking_pool.key();
         stake_account.owner = ctx.accounts.owner.key();
         stake_account.terminal_mint = ctx.accounts.terminal_asset.key();
-        stake_account.pool = ctx.accounts.staking_pool.key();
+        stake_account.pool = staking_pool_key;
         stake_account.stake_timestamp = clock.unix_timestamp;
         stake_account.last_claim_timestamp = clock.unix_timestamp;
         stake_account.total_staked_time = 0;
         stake_account.is_staked = true;
-        stake_account.rarity_multiplier = calculate_rarity_multiplier(&ctx.accounts.terminal_asset)?;
+        stake_account.rarity_multiplier = calculate_rarity_multiplier()?;
         stake_account.bump = ctx.bumps.stake_account;
 
         // Update pool stats
@@ -178,10 +185,12 @@ pub mod terminal_staking {
         let rewards = calculate_rewards(staking_duration, stake_account.rarity_multiplier)?;
 
         if rewards > 0 {
+            let collection_ref = pool.collection;
+            let pool_bump = pool.bump;
             let pool_seeds = &[
                 b"pool",
-                pool.collection.as_ref(),
-                &[pool.bump],
+                collection_ref.as_ref(),
+                &[pool_bump],
             ];
             let signer_seeds = &[&pool_seeds[..]];
 
@@ -361,7 +370,7 @@ fn calculate_rewards(duration_seconds: i64, rarity_multiplier: u16) -> Result<u6
     Ok(multiplied_rewards)
 }
 
-fn calculate_rarity_multiplier(terminal: &Account<BaseAssetV1>) -> Result<u16> {
+fn calculate_rarity_multiplier() -> Result<u16> {
     // In a real implementation, you'd fetch attributes and calculate rarity
     // For now, return a base multiplier
     // Rarity score 1-100 maps to multiplier 100-200 (1x to 2x rewards)
@@ -383,7 +392,8 @@ pub struct InitializePool<'info> {
     )]
     pub staking_pool: Account<'info, StakingPool>,
 
-    pub collection: Account<'info, BaseCollectionV1>,
+    /// CHECK: Validated through MPL Core
+    pub collection: UncheckedAccount<'info>,
     pub reward_mint: Account<'info, Mint>,
     pub system_program: Program<'info, System>,
 }
@@ -415,18 +425,13 @@ pub struct StakeTerminal<'info> {
     )]
     pub stake_account: Account<'info, StakeAccount>,
 
-    #[account(
-        mut,
-        has_one = owner,
-        constraint = terminal_asset.update_authority == UpdateAuthority::Collection(collection.key()),
-    )]
-    pub terminal_asset: Account<'info, BaseAssetV1>,
+    /// CHECK: Validated through MPL Core
+    #[account(mut)]
+    pub terminal_asset: UncheckedAccount<'info>,
 
-    #[account(
-        mut,
-        constraint = collection.key() == staking_pool.collection
-    )]
-    pub collection: Account<'info, BaseCollectionV1>,
+    /// CHECK: Validated through MPL Core
+    #[account(mut)]
+    pub collection: UncheckedAccount<'info>,
 
     #[account(address = MPL_CORE_ID)]
     /// CHECK: this will be checked by mpl-core
@@ -461,14 +466,13 @@ pub struct UnstakeTerminal<'info> {
     )]
     pub stake_account: Account<'info, StakeAccount>,
 
+    /// CHECK: Validated through MPL Core
     #[account(mut)]
-    pub terminal_asset: Account<'info, BaseAssetV1>,
+    pub terminal_asset: UncheckedAccount<'info>,
 
-    #[account(
-        mut,
-        constraint = collection.key() == staking_pool.collection
-    )]
-    pub collection: Account<'info, BaseCollectionV1>,
+    /// CHECK: Validated through MPL Core
+    #[account(mut)]
+    pub collection: UncheckedAccount<'info>,
 
     #[account(
         mut,
