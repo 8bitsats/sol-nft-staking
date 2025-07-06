@@ -1,5 +1,5 @@
 [toolchain]
-anchor_version = "0.30.1"
+anchor_version = "0.31.1"
 
 [programs.localnet]
 terminal_staking = "Zkc1y5YhcFi82Q6wmLjfreQd2nsS1eWBcxWVn3KCrP7"
