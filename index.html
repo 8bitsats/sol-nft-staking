@@ -531,12 +531,6 @@
                     stakedTime: nft.stakedTime
                 }));
 
-                // Simulate some NFTs being staked
-                userNFTs[0].isStaked = true;
-                userNFTs[0].stakedTime = Date.now() - (3 * 24 * 60 * 60 * 1000); // 3 days ago
-                userNFTs[1].isStaked = true;
-                userNFTs[1].stakedTime = Date.now() - (1 * 24 * 60 * 60 * 1000); // 1 day ago
-
                 nfts = userNFTs.filter(nft => !nft.isStaked);
                 stakedNFTs = userNFTs.filter(nft => nft.isStaked);
 

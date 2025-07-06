@@ -96,17 +96,23 @@ class NFTDataLoader {
         const sampleNFTs = this.getRandomNFTs(sampleSize);
         const frontendData = {
             collection: this.getCollectionStats(),
-            nfts: sampleNFTs.map(nft => ({
-                id: nft.id,
-                name: nft.metadata.name,
-                description: nft.metadata.description,
-                image: nft.imagePath,
-                attributes: nft.metadata.attributes,
-                symbol: nft.metadata.symbol,
-                rarity: nft.metadata.attributes.find(attr => attr.trait_type === 'Rarity Rank')?.value || 0,
-                isStaked: nft.isStaked,
-                stakedTime: nft.stakedTime
-            }))
+            nfts: sampleNFTs.map((nft, index) => {
+                // Simulate some NFTs being staked
+                const isStaked = index < 3; // First 3 NFTs are staked
+                const stakedTime = isStaked ? Date.now() - (Math.random() * 7 * 24 * 60 * 60 * 1000) : 0; // Random staking time up to 7 days
+                
+                return {
+                    id: nft.id,
+                    name: nft.metadata.name,
+                    description: nft.metadata.description,
+                    image: nft.imagePath,
+                    attributes: nft.metadata.attributes,
+                    symbol: nft.metadata.symbol,
+                    rarity: nft.metadata.attributes.find(attr => attr.trait_type === 'Rarity Rank')?.value || 0,
+                    isStaked: isStaked,
+                    stakedTime: stakedTime
+                };
+            })
         };
 
         // Write to a file that the frontend can use
