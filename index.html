@@ -336,6 +336,34 @@
             gap: 2rem;
         }
 
+        .terminal-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        .terminal-logo svg {
+            filter: drop-shadow(0 0 10px #00ff00) drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 30px #00ffff);
+            transition: all 0.3s ease;
+        }
+
+        .terminal-logo:hover svg {
+            filter: drop-shadow(0 0 15px #00ff00) drop-shadow(0 0 30px #ff00ff) drop-shadow(0 0 45px #00ffff);
+            transform: scale(1.05);
+        }
+
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 10px #00ff00) drop-shadow(0 0 20px #ff00ff);
+            }
+            50% {
+                filter: drop-shadow(0 0 20px #00ff00) drop-shadow(0 0 30px #ff00ff) drop-shadow(0 0 15px #00ffff);
+            }
+            100% {
+                filter: drop-shadow(0 0 15px #00ff00) drop-shadow(0 0 35px #ff00ff) drop-shadow(0 0 25px #00ffff);
+            }
+        }
+
         @media (max-width: 768px) {
             .two-column {
                 grid-template-columns: 1fr;
@@ -385,6 +413,76 @@
         </div>
 
         <div class="terminal-body">
+            <!-- Terminal Logo -->
+            <div class="terminal-logo">
+                <svg width="120" height="120" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Terminal Body -->
+                    <rect x="40" y="60" width="120" height="90" rx="15" ry="15" fill="#c8b99c" stroke="#9e9183" stroke-width="2"/>
+                    
+                    <!-- Screen -->
+                    <rect x="50" y="70" width="100" height="60" rx="8" ry="8" fill="#1a1a1a" stroke="#00ff00" stroke-width="2"/>
+                    
+                    <!-- Terminal Text Lines -->
+                    <line x1="55" y1="80" x2="90" y2="80" stroke="#00ff00" stroke-width="1.5"/>
+                    <line x1="95" y1="80" x2="110" y2="80" stroke="#00ff00" stroke-width="1.5"/>
+                    <line x1="115" y1="80" x2="145" y2="80" stroke="#00ff00" stroke-width="1.5"/>
+                    
+                    <line x1="55" y1="88" x2="75" y2="88" stroke="#00ff00" stroke-width="1.5"/>
+                    <line x1="80" y1="88" x2="120" y2="88" stroke="#00ff00" stroke-width="1.5"/>
+                    <line x1="125" y1="88" x2="145" y2="88" stroke="#00ff00" stroke-width="1.5"/>
+                    
+                    <line x1="55" y1="96" x2="85" y2="96" stroke="#00ff00" stroke-width="1.5"/>
+                    <line x1="90" y1="96" x2="130" y2="96" stroke="#00ff00" stroke-width="1.5"/>
+                    
+                    <line x1="55" y1="104" x2="70" y2="104" stroke="#00ff00" stroke-width="1.5"/>
+                    <line x1="75" y1="104" x2="145" y2="104" stroke="#00ff00" stroke-width="1.5"/>
+                    
+                    <!-- Smiley Face on Screen -->
+                    <circle cx="120" cy="110" r="8" fill="none" stroke="#00ff00" stroke-width="2"/>
+                    <circle cx="116" cy="107" r="1.5" fill="#00ff00"/>
+                    <circle cx="124" cy="107" r="1.5" fill="#00ff00"/>
+                    <path d="M 114 112 Q 120 116 126 112" stroke="#00ff00" stroke-width="2" fill="none"/>
+                    
+                    <!-- Keyboard -->
+                    <rect x="50" y="140" width="100" height="15" rx="3" ry="3" fill="#9e9183"/>
+                    <rect x="55" y="143" width="8" height="3" fill="#666"/>
+                    <rect x="66" y="143" width="8" height="3" fill="#666"/>
+                    <rect x="77" y="143" width="8" height="3" fill="#666"/>
+                    <rect x="88" y="143" width="8" height="3" fill="#666"/>
+                    <rect x="99" y="143" width="8" height="3" fill="#666"/>
+                    <rect x="110" y="143" width="8" height="3" fill="#666"/>
+                    <rect x="121" y="143" width="8" height="3" fill="#666"/>
+                    <rect x="132" y="143" width="12" height="3" fill="#666"/>
+                    
+                    <rect x="55" y="148" width="12" height="3" fill="#666"/>
+                    <rect x="70" y="148" width="8" height="3" fill="#666"/>
+                    <rect x="81" y="148" width="8" height="3" fill="#666"/>
+                    <rect x="92" y="148" width="8" height="3" fill="#666"/>
+                    <rect x="103" y="148" width="8" height="3" fill="#666"/>
+                    <rect x="114" y="148" width="8" height="3" fill="#666"/>
+                    <rect x="125" y="148" width="19" height="3" fill="#666"/>
+                    
+                    <!-- Arms -->
+                    <ellipse cx="30" cy="90" rx="8" ry="15" fill="#1a1a1a"/>
+                    <ellipse cx="170" cy="90" rx="8" ry="15" fill="#1a1a1a"/>
+                    
+                    <!-- Coffee Cup -->
+                    <rect x="165" y="75" width="12" height="15" rx="2" ry="2" fill="#c8b99c" stroke="#9e9183" stroke-width="1"/>
+                    <path d="M 177 82 Q 182 82 182 87 Q 182 92 177 92" stroke="#9e9183" stroke-width="1" fill="none"/>
+                    <rect x="167" y="77" width="8" height="2" fill="#00ffff"/>
+                    <rect x="167" y="80" width="8" height="1" fill="#ff00ff"/>
+                    <rect x="167" y="82" width="8" height="1" fill="#00ffff"/>
+                    
+                    <!-- Legs -->
+                    <ellipse cx="75" cy="170" rx="8" ry="12" fill="#1a1a1a"/>
+                    <ellipse cx="125" cy="170" rx="8" ry="12" fill="#1a1a1a"/>
+                    
+                    <!-- Feet -->
+                    <ellipse cx="75" cy="185" rx="12" ry="6" fill="#c8b99c"/>
+                    <ellipse cx="125" cy="185" rx="12" ry="6" fill="#c8b99c"/>
+                </svg>
+            </div>
+            
             <div class="terminal-prompt">
                 root@solana:~$ ./nft-staking-system --initialize<span class="blinking-cursor">_</span>
             </div>
