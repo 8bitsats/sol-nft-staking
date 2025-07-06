@@ -304,10 +304,12 @@ pub mod terminal_staking {
         let rewards = calculate_rewards(staking_duration, stake_account.rarity_multiplier)?;
 
         if rewards > 0 {
+            let collection_ref = pool.collection;
+            let pool_bump = pool.bump;
             let pool_seeds = &[
                 b"pool",
-                pool.collection.as_ref(),
-                &[pool.bump],
+                collection_ref.as_ref(),
+                &[pool_bump],
             ];
             let signer_seeds = &[&pool_seeds[..]];
 
