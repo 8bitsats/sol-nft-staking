@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #105",
+  "symbol": "TERM",
+  "description": "Terminal #105 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/105.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Horns Pink"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Gray"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Oval Purple"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Swirl Green"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Surprised Pink"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Swirl Orange"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 45,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 105,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/105.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

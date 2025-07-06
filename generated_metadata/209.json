@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #209",
+  "symbol": "TERM",
+  "description": "Terminal #209 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/209.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Bandana Red"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Green"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Diamond Red"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Dot Black"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Frown Blue"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Star Silver"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 76,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 209,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/209.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

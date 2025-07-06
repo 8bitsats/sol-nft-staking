@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #446",
+  "symbol": "TERM",
+  "description": "Terminal #446 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/446.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Crown Silver"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Green"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Round Pink"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Dot Black"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Grin Blue"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Dot White"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 53,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 446,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/446.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

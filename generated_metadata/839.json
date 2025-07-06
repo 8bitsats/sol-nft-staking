@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #839",
+  "symbol": "TERM",
+  "description": "Terminal #839 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/839.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Horns Orange"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Yellow"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Round Aqua"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Circle Blue"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Smile Orange"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Circle Blue"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 25,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 839,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/839.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

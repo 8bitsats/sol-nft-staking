@@ -1,0 +1,1192 @@
+{
+  "collection": {
+    "name": "Terminal NFT Collection",
+    "symbol": "TERM",
+    "totalSupply": 1000,
+    "loadedCount": 977,
+    "description": "Terminal #collection_summary - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+    "traits": [
+      {
+        "trait_type": "Accessory",
+        "possible_values": 20,
+        "values": [
+          "Tear Tattoo Red",
+          "Horns Blue",
+          "Horns Yellow",
+          "Horns Purple",
+          "Horns Green",
+          "Horns Orange",
+          "Horns Pink",
+          "Crown Gold",
+          "Crown Silver",
+          "Crown Bronze",
+          "Hat Blue",
+          "Hat Red",
+          "Hat Green",
+          "Glasses Black",
+          "Glasses Purple",
+          "Earrings Gold",
+          "Earrings Silver",
+          "Bandana Red",
+          "Bandana Blue",
+          "None"
+        ]
+      },
+      {
+        "trait_type": "Background",
+        "possible_values": 18,
+        "values": [
+          "Black",
+          "Blue",
+          "Red",
+          "Green",
+          "Purple",
+          "Orange",
+          "Yellow",
+          "Pink",
+          "Gray",
+          "White",
+          "Gradient Blue",
+          "Gradient Purple",
+          "Gradient Pink",
+          "Solid Blue",
+          "Solid Red",
+          "Solid Green",
+          "Dark Blue",
+          "Dark Purple"
+        ]
+      },
+      {
+        "trait_type": "Face",
+        "possible_values": 15,
+        "values": [
+          "Round Aqua",
+          "Round Yellow",
+          "Round Pink",
+          "Round Purple",
+          "Round Green",
+          "Round Orange",
+          "Square Blue",
+          "Square Red",
+          "Square Yellow",
+          "Triangle Pink",
+          "Triangle Blue",
+          "Triangle Green",
+          "Oval Purple",
+          "Oval Yellow",
+          "Diamond Red"
+        ]
+      },
+      {
+        "trait_type": "Left Eye",
+        "possible_values": 16,
+        "values": [
+          "Swirl Purple",
+          "Swirl Yellow",
+          "Swirl Orange",
+          "Swirl Pink",
+          "Swirl Blue",
+          "Swirl Green",
+          "X Red",
+          "X Blue",
+          "X Purple",
+          "Dot Black",
+          "Dot White",
+          "Star Gold",
+          "Star Silver",
+          "Circle Red",
+          "Circle Blue",
+          "Normal Black"
+        ]
+      },
+      {
+        "trait_type": "Mouth",
+        "possible_values": 15,
+        "values": [
+          "Grin Pink",
+          "Grin Yellow",
+          "Grin Green",
+          "Grin Blue",
+          "Grin Purple",
+          "Smile Red",
+          "Smile Orange",
+          "Frown Blue",
+          "Frown Purple",
+          "Open Red",
+          "Open Blue",
+          "Surprised Pink",
+          "Wink Purple",
+          "Tongue Out Red",
+          "Serious Black"
+        ]
+      },
+      {
+        "trait_type": "Right Eye",
+        "possible_values": 17,
+        "values": [
+          "Swirl Pink",
+          "X Aqua",
+          "Swirl Purple",
+          "Swirl Yellow",
+          "Swirl Orange",
+          "Swirl Blue",
+          "Swirl Green",
+          "X Red",
+          "X Blue",
+          "X Purple",
+          "Dot Black",
+          "Dot White",
+          "Star Gold",
+          "Star Silver",
+          "Circle Red",
+          "Circle Blue",
+          "Normal Black"
+        ]
+      }
+    ],
+    "royaltyPercentage": 2.5,
+    "creatorAddress": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN"
+  },
+  "nfts": [
+    {
+      "id": "985",
+      "name": "Terminal #985",
+      "description": "Terminal #985 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/985.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Hat Blue"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Gradient Pink"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Triangle Blue"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Dot White"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Surprised Pink"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Swirl Pink"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 46,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 985,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 46,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "703",
+      "name": "Terminal #703",
+      "description": "Terminal #703 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/703.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Crown Gold"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Green"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Oval Purple"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Normal Black"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Smile Orange"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Star Gold"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 42,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 703,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 42,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "518",
+      "name": "Terminal #518",
+      "description": "Terminal #518 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/518.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Crown Gold"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Gray"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Oval Yellow"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Pink"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Grin Pink"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Swirl Blue"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 89,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 518,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 89,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "643",
+      "name": "Terminal #643",
+      "description": "Terminal #643 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/643.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Glasses Purple"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Black"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Aqua"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Orange"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Grin Green"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Circle Red"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 92,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 643,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 92,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "595",
+      "name": "Terminal #595",
+      "description": "Terminal #595 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/595.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "None"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Blue"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Pink"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "X Red"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Grin Green"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Dot White"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 15,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 595,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 15,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "645",
+      "name": "Terminal #645",
+      "description": "Terminal #645 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/645.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Crown Bronze"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Gradient Blue"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Purple"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Dot Black"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Surprised Pink"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "X Red"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 75,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 645,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 75,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "657",
+      "name": "Terminal #657",
+      "description": "Terminal #657 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/657.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Earrings Silver"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Yellow"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Oval Yellow"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Green"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Serious Black"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Swirl Orange"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 28,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 657,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 28,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "571",
+      "name": "Terminal #571",
+      "description": "Terminal #571 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/571.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Horns Pink"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Gradient Pink"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Purple"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Purple"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Serious Black"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Dot Black"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 67,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 571,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 67,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "519",
+      "name": "Terminal #519",
+      "description": "Terminal #519 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/519.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Glasses Black"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Gradient Blue"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Yellow"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Star Gold"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Frown Purple"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Circle Red"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 86,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 519,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 86,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "531",
+      "name": "Terminal #531",
+      "description": "Terminal #531 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/531.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Horns Purple"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Solid Red"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Square Yellow"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Green"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Grin Blue"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Dot White"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 14,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 531,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 14,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "636",
+      "name": "Terminal #636",
+      "description": "Terminal #636 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/636.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Horns Yellow"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Solid Green"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Purple"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Pink"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Frown Purple"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "X Aqua"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 80,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 636,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 80,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "651",
+      "name": "Terminal #651",
+      "description": "Terminal #651 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/651.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Bandana Red"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Dark Blue"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Triangle Pink"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Dot White"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Wink Purple"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Circle Blue"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 68,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 651,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 68,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "607",
+      "name": "Terminal #607",
+      "description": "Terminal #607 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/607.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Crown Gold"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Purple"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Pink"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Yellow"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Surprised Pink"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "X Blue"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 47,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 607,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 47,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "721",
+      "name": "Terminal #721",
+      "description": "Terminal #721 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/721.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Tear Tattoo Red"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Pink"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Square Red"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Yellow"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Grin Green"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Circle Blue"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 9,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 721,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 9,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "700",
+      "name": "Terminal #700",
+      "description": "Terminal #700 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/700.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Horns Yellow"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Gradient Pink"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Triangle Pink"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Star Gold"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Frown Purple"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "X Red"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 82,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 700,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 82,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "773",
+      "name": "Terminal #773",
+      "description": "Terminal #773 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/773.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Hat Red"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Dark Blue"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Green"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Star Gold"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Open Blue"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Circle Blue"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 3,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 773,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 3,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "789",
+      "name": "Terminal #789",
+      "description": "Terminal #789 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/789.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Horns Blue"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Solid Red"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Yellow"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Normal Black"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Smile Orange"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Circle Blue"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 56,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 789,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 56,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "658",
+      "name": "Terminal #658",
+      "description": "Terminal #658 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/658.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Hat Red"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Solid Red"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Round Yellow"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Blue"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Open Blue"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Swirl Blue"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 61,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 658,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 61,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "565",
+      "name": "Terminal #565",
+      "description": "Terminal #565 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/565.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Glasses Black"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Gray"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Square Red"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Star Gold"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Smile Red"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Star Gold"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 39,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 565,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 39,
+      "isStaked": false,
+      "stakedTime": 0
+    },
+    {
+      "id": "685",
+      "name": "Terminal #685",
+      "description": "Terminal #685 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+      "image": "./generated_images/685.png",
+      "attributes": [
+        {
+          "trait_type": "Accessory",
+          "value": "Bandana Red"
+        },
+        {
+          "trait_type": "Background",
+          "value": "White"
+        },
+        {
+          "trait_type": "Face",
+          "value": "Triangle Blue"
+        },
+        {
+          "trait_type": "Left Eye",
+          "value": "Swirl Pink"
+        },
+        {
+          "trait_type": "Mouth",
+          "value": "Smile Red"
+        },
+        {
+          "trait_type": "Right Eye",
+          "value": "Swirl Blue"
+        },
+        {
+          "trait_type": "Rarity Rank",
+          "value": 30,
+          "display_type": "number",
+          "max_value": 100
+        },
+        {
+          "trait_type": "Generation",
+          "value": 1,
+          "display_type": "number"
+        },
+        {
+          "trait_type": "Token ID",
+          "value": 685,
+          "display_type": "number"
+        }
+      ],
+      "symbol": "TERM",
+      "rarity": 30,
+      "isStaked": false,
+      "stakedTime": 0
+    }
+  ]
+}

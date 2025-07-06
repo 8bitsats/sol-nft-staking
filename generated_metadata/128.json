@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #128",
+  "symbol": "TERM",
+  "description": "Terminal #128 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/128.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Hat Green"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Solid Red"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Round Aqua"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Swirl Yellow"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Grin Purple"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Circle Blue"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 34,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 128,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/128.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

@@ -452,6 +452,7 @@
         let publicKey = null;
         let nfts = [];
         let stakedNFTs = [];
+        let nftData = null;
 
         // Initialize connection
         const RPC_URL = 'https://mainnet.helius-rpc.com/?api-key=6b52d42b-5d24-4841-a093-02b0d2cc9fc0';
@@ -472,6 +473,10 @@
                     publicKey = response.publicKey;
                     
                     updateWalletInfo();
+                    
+                    if (!nftData) {
+                        await loadNFTData();
+                    }
                     await loadNFTs();
                     
                     connectButton.textContent = 'Connection Established';
@@ -496,40 +501,44 @@
             }
         }
 
+        async function loadNFTData() {
+            try {
+                const response = await fetch('./nft-data.json');
+                nftData = await response.json();
+                console.log('Loaded NFT data:', nftData);
+            } catch (error) {
+                console.error('Error loading NFT data:', error);
+                showMessage('Failed to load NFT collection data', 'error');
+            }
+        }
+
         async function loadNFTs() {
-            if (!publicKey) return;
+            if (!publicKey || !nftData) return;
 
             try {
                 availableNFTsDiv.innerHTML = '<div class="loading">Scanning blockchain for NFT assets...</div>';
                 
-                // This is a simplified mock implementation
-                // In a real app, you would fetch actual NFTs from the blockchain
-                const mockNFTs = [
-                    {
-                        id: '1',
-                        name: 'Terminal NFT #001',
-                        image: 'https://via.placeholder.com/200x200/00ff00/000000?text=TERM-001',
-                        isStaked: false,
-                        stakedTime: 0
-                    },
-                    {
-                        id: '2',
-                        name: 'Cyber Asset #042',
-                        image: 'https://via.placeholder.com/200x200/00ffff/000000?text=CYBER-042',
-                        isStaked: false,
-                        stakedTime: 0
-                    },
-                    {
-                        id: '3',
-                        name: 'Matrix Token #256',
-                        image: 'https://via.placeholder.com/200x200/ff00ff/000000?text=MATRIX-256',
-                        isStaked: true,
-                        stakedTime: Date.now() - (2 * 24 * 60 * 60 * 1000) // 2 days ago
-                    }
-                ];
+                // Use real NFT data from the collection
+                // In production, you'd filter based on wallet ownership
+                const userNFTs = nftData.nfts.map(nft => ({
+                    id: nft.id,
+                    name: nft.name,
+                    image: nft.image,
+                    description: nft.description,
+                    attributes: nft.attributes,
+                    rarity: nft.rarity,
+                    isStaked: nft.isStaked,
+                    stakedTime: nft.stakedTime
+                }));
 
-                nfts = mockNFTs.filter(nft => !nft.isStaked);
-                stakedNFTs = mockNFTs.filter(nft => nft.isStaked);
+                // Simulate some NFTs being staked
+                userNFTs[0].isStaked = true;
+                userNFTs[0].stakedTime = Date.now() - (3 * 24 * 60 * 60 * 1000); // 3 days ago
+                userNFTs[1].isStaked = true;
+                userNFTs[1].stakedTime = Date.now() - (1 * 24 * 60 * 60 * 1000); // 1 day ago
+
+                nfts = userNFTs.filter(nft => !nft.isStaked);
+                stakedNFTs = userNFTs.filter(nft => nft.isStaked);
 
                 renderNFTs();
                 updateStats();
@@ -545,18 +554,22 @@
             if (nfts.length === 0) {
                 availableNFTsDiv.innerHTML = '<div class="loading">No available assets detected</div>';
             } else {
-                availableNFTsDiv.innerHTML = nfts.map(nft => `
-                    <div class="nft-card">
-                        <img src="${nft.image}" alt="${nft.name}" class="nft-image">
-                        <div class="nft-info">
-                            <div class="nft-name">${nft.name}</div>
-                            <div class="nft-status">[STATUS: READY]</div>
-                            <button class="stake-button stake" onclick="stakeNFT('${nft.id}')">
-                                Execute Stake
-                            </button>
+                availableNFTsDiv.innerHTML = nfts.map(nft => {
+                    const rarityTrait = nft.attributes?.find(attr => attr.trait_type === 'Rarity Rank');
+                    const rarity = rarityTrait ? rarityTrait.value : 'Unknown';
+                    return `
+                        <div class="nft-card" title="${nft.description || ''}">
+                            <img src="${nft.image}" alt="${nft.name}" class="nft-image" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\"><rect width=\"200\" height=\"200\" fill=\"%2300ff00\"/><text x=\"100\" y=\"100\" font-family=\"monospace\" font-size=\"12\" fill=\"%23000\" text-anchor=\"middle\">NFT ${nft.id}</text></svg>'">
+                            <div class="nft-info">
+                                <div class="nft-name">${nft.name}</div>
+                                <div class="nft-status">[RARITY: ${rarity}] [STATUS: READY]</div>
+                                <button class="stake-button stake" onclick="stakeNFT('${nft.id}')">
+                                    Execute Stake
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
             }
 
             // Render staked NFTs
@@ -565,12 +578,14 @@
             } else {
                 stakedNFTsDiv.innerHTML = stakedNFTs.map(nft => {
                     const stakingDays = Math.floor((Date.now() - nft.stakedTime) / (24 * 60 * 60 * 1000));
+                    const rarityTrait = nft.attributes?.find(attr => attr.trait_type === 'Rarity Rank');
+                    const rarity = rarityTrait ? rarityTrait.value : 'Unknown';
                     return `
-                        <div class="nft-card">
-                            <img src="${nft.image}" alt="${nft.name}" class="nft-image">
+                        <div class="nft-card" title="${nft.description || ''}">
+                            <img src="${nft.image}" alt="${nft.name}" class="nft-image" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\"><rect width=\"200\" height=\"200\" fill=\"%2300ff00\"/><text x=\"100\" y=\"100\" font-family=\"monospace\" font-size=\"12\" fill=\"%23000\" text-anchor=\"middle\">NFT ${nft.id}</text></svg>'">
                             <div class="nft-info">
                                 <div class="nft-name">${nft.name}</div>
-                                <div class="nft-status">[STAKED: ${stakingDays}d]</div>
+                                <div class="nft-status">[RARITY: ${rarity}] [STAKED: ${stakingDays}d]</div>
                                 <button class="stake-button unstake" onclick="unstakeNFT('${nft.id}')">
                                     Execute Unstake
                                 </button>
@@ -689,14 +704,22 @@
         }
 
         // Initialize the app
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Load NFT data first
+            await loadNFTData();
+            
             // Check if wallet is already connected
             if (typeof window.solana !== 'undefined' && window.solana.isPhantom) {
-                window.solana.connect({ onlyIfTrusted: true }).then(response => {
+                window.solana.connect({ onlyIfTrusted: true }).then(async response => {
                     if (response.publicKey) {
                         publicKey = response.publicKey;
                         updateWalletInfo();
-                        loadNFTs();
+                        
+                        if (!nftData) {
+                            await loadNFTData();
+                        }
+                        await loadNFTs();
+                        
                         connectButton.textContent = 'Connection Established';
                         connectButton.disabled = true;
                     }

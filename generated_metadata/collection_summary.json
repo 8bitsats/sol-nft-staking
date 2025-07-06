@@ -1,0 +1,148 @@
+{
+  "collection_name": "Terminal NFT Collection",
+  "total_supply": 1000,
+  "symbol": "TERM",
+  "description": "Terminal #collection_summary - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "traits": [
+    {
+      "trait_type": "Accessory",
+      "possible_values": 20,
+      "values": [
+        "Tear Tattoo Red",
+        "Horns Blue",
+        "Horns Yellow",
+        "Horns Purple",
+        "Horns Green",
+        "Horns Orange",
+        "Horns Pink",
+        "Crown Gold",
+        "Crown Silver",
+        "Crown Bronze",
+        "Hat Blue",
+        "Hat Red",
+        "Hat Green",
+        "Glasses Black",
+        "Glasses Purple",
+        "Earrings Gold",
+        "Earrings Silver",
+        "Bandana Red",
+        "Bandana Blue",
+        "None"
+      ]
+    },
+    {
+      "trait_type": "Background",
+      "possible_values": 18,
+      "values": [
+        "Black",
+        "Blue",
+        "Red",
+        "Green",
+        "Purple",
+        "Orange",
+        "Yellow",
+        "Pink",
+        "Gray",
+        "White",
+        "Gradient Blue",
+        "Gradient Purple",
+        "Gradient Pink",
+        "Solid Blue",
+        "Solid Red",
+        "Solid Green",
+        "Dark Blue",
+        "Dark Purple"
+      ]
+    },
+    {
+      "trait_type": "Face",
+      "possible_values": 15,
+      "values": [
+        "Round Aqua",
+        "Round Yellow",
+        "Round Pink",
+        "Round Purple",
+        "Round Green",
+        "Round Orange",
+        "Square Blue",
+        "Square Red",
+        "Square Yellow",
+        "Triangle Pink",
+        "Triangle Blue",
+        "Triangle Green",
+        "Oval Purple",
+        "Oval Yellow",
+        "Diamond Red"
+      ]
+    },
+    {
+      "trait_type": "Left Eye",
+      "possible_values": 16,
+      "values": [
+        "Swirl Purple",
+        "Swirl Yellow",
+        "Swirl Orange",
+        "Swirl Pink",
+        "Swirl Blue",
+        "Swirl Green",
+        "X Red",
+        "X Blue",
+        "X Purple",
+        "Dot Black",
+        "Dot White",
+        "Star Gold",
+        "Star Silver",
+        "Circle Red",
+        "Circle Blue",
+        "Normal Black"
+      ]
+    },
+    {
+      "trait_type": "Mouth",
+      "possible_values": 15,
+      "values": [
+        "Grin Pink",
+        "Grin Yellow",
+        "Grin Green",
+        "Grin Blue",
+        "Grin Purple",
+        "Smile Red",
+        "Smile Orange",
+        "Frown Blue",
+        "Frown Purple",
+        "Open Red",
+        "Open Blue",
+        "Surprised Pink",
+        "Wink Purple",
+        "Tongue Out Red",
+        "Serious Black"
+      ]
+    },
+    {
+      "trait_type": "Right Eye",
+      "possible_values": 17,
+      "values": [
+        "Swirl Pink",
+        "X Aqua",
+        "Swirl Purple",
+        "Swirl Yellow",
+        "Swirl Orange",
+        "Swirl Blue",
+        "Swirl Green",
+        "X Red",
+        "X Blue",
+        "X Purple",
+        "Dot Black",
+        "Dot White",
+        "Star Gold",
+        "Star Silver",
+        "Circle Red",
+        "Circle Blue",
+        "Normal Black"
+      ]
+    }
+  ],
+  "royalty_percentage": 2.5,
+  "creator_address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+  "generation_date": "2025-07-05T16:32:24.882Z"
+}

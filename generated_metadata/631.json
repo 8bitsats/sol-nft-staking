@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #631",
+  "symbol": "TERM",
+  "description": "Terminal #631 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/631.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "None"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Green"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Round Orange"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Swirl Yellow"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Grin Green"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "X Aqua"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 89,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 631,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/631.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

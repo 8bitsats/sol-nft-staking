@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #121",
+  "symbol": "TERM",
+  "description": "Terminal #121 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/121.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Earrings Silver"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Yellow"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Round Yellow"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Circle Blue"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Frown Blue"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Swirl Green"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 77,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 121,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/121.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

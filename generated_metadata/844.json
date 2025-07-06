@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #844",
+  "symbol": "TERM",
+  "description": "Terminal #844 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/844.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Earrings Silver"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Gradient Pink"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Triangle Blue"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Swirl Yellow"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Smile Orange"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "X Blue"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 87,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 844,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/844.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

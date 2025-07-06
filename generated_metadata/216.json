@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #216",
+  "symbol": "TERM",
+  "description": "Terminal #216 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/216.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Tear Tattoo Red"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Dark Blue"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Square Yellow"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "X Blue"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Open Red"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Dot Black"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 99,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 216,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/216.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

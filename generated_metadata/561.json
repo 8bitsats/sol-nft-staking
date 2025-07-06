@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #561",
+  "symbol": "TERM",
+  "description": "Terminal #561 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/561.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Tear Tattoo Red"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Gradient Purple"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Oval Purple"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Star Gold"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Surprised Pink"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Swirl Green"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 95,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 561,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/561.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}

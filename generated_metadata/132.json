@@ -1,0 +1,65 @@
+{
+  "name": "Terminal #132",
+  "symbol": "TERM",
+  "description": "Terminal #132 - The official NFT of the Terminal collection on Solana giving you immediate access to the terminal tech anon",
+  "seller_fee_basis_points": 250,
+  "image": "/132.jpeg",
+  "external_url": "",
+  "attributes": [
+    {
+      "trait_type": "Accessory",
+      "value": "Tear Tattoo Red"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Solid Red"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Triangle Pink"
+    },
+    {
+      "trait_type": "Left Eye",
+      "value": "Swirl Orange"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Smile Orange"
+    },
+    {
+      "trait_type": "Right Eye",
+      "value": "Normal Black"
+    },
+    {
+      "trait_type": "Rarity Rank",
+      "value": 72,
+      "display_type": "number",
+      "max_value": 100
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Token ID",
+      "value": 132,
+      "display_type": "number"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "/132.jpeg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "4qYktnw292aVKUPbpJexFaargqufsLGZsaVryNDuesLN",
+        "share": 100
+      }
+    ]
+  }
+}
