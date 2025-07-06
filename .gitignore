@@ -4,14 +4,14 @@
 target
 **/*.rs.bk
 node_modules
-
+generated_images
 # Environment files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-
+generated_metadata
 # Dependencies
 node_modules/
 backend/node_modules/
