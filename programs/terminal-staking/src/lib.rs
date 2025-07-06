@@ -40,16 +40,18 @@ pub mod terminal_staking {
 
     /// Stake a terminal NFT
     pub fn stake_terminal(ctx: Context<StakeTerminal>) -> Result<()> {
-        let pool = &mut ctx.accounts.staking_pool;
-        let stake_account = &mut ctx.accounts.stake_account;
         let clock = Clock::get()?;
+
+        // Extract values we need before mutable borrow
+        let pool_collection = ctx.accounts.staking_pool.collection;
+        let current_staked = ctx.accounts.staking_pool.total_staked;
+        let max_terminals = ctx.accounts.staking_pool.max_terminals;
 
         // Deserialize and validate the terminal asset
         let terminal_data = ctx.accounts.terminal_asset.try_borrow_data()?;
         let terminal_asset = BaseAssetV1::from_bytes(&terminal_data)?;
 
         // Verify terminal belongs to collection  
-        let pool_collection = pool.collection;
         require!(
             terminal_asset.update_authority == UpdateAuthority::Collection(pool_collection),
             StakingError::InvalidCollection
@@ -57,14 +59,18 @@ pub mod terminal_staking {
 
         // Check pool capacity
         require!(
-            pool.total_staked < pool.max_terminals,
+            current_staked < max_terminals,
             StakingError::PoolAtCapacity
         );
 
         // Initialize or validate stake account
-        if stake_account.is_staked {
+        if ctx.accounts.stake_account.is_staked {
             return Err(StakingError::AlreadyStaked.into());
         }
+
+        // Now get mutable references
+        let pool = &mut ctx.accounts.staking_pool;
+        let stake_account = &mut ctx.accounts.stake_account;
 
         // Check if asset has attributes plugin
         match fetch_plugin::<BaseAssetV1, Attributes>(
@@ -148,10 +154,9 @@ pub mod terminal_staking {
             .invoke()?;
 
         // Update stake account
-        let staking_pool_key = ctx.accounts.staking_pool.key();
         stake_account.owner = ctx.accounts.owner.key();
         stake_account.terminal_mint = ctx.accounts.terminal_asset.key();
-        stake_account.pool = staking_pool_key;
+        stake_account.pool = pool.key();
         stake_account.stake_timestamp = clock.unix_timestamp;
         stake_account.last_claim_timestamp = clock.unix_timestamp;
         stake_account.total_staked_time = 0;
@@ -173,9 +178,15 @@ pub mod terminal_staking {
 
     /// Unstake a terminal NFT and claim rewards
     pub fn unstake_terminal(ctx: Context<UnstakeTerminal>) -> Result<()> {
+        let clock = Clock::get()?;
+
+        // Extract values before mutable borrow
+        let collection_ref = ctx.accounts.staking_pool.collection;
+        let pool_bump = ctx.accounts.staking_pool.bump;
+        let staking_pool_info = ctx.accounts.staking_pool.to_account_info();
+
         let pool = &mut ctx.accounts.staking_pool;
         let stake_account = &mut ctx.accounts.stake_account;
-        let clock = Clock::get()?;
 
         require!(stake_account.is_staked, StakingError::NotStaked);
         require!(stake_account.owner == ctx.accounts.owner.key(), StakingError::Unauthorized);
@@ -185,8 +196,6 @@ pub mod terminal_staking {
         let rewards = calculate_rewards(staking_duration, stake_account.rarity_multiplier)?;
 
         if rewards > 0 {
-            let collection_ref = pool.collection;
-            let pool_bump = pool.bump;
             let pool_seeds = &[
                 b"pool",
                 collection_ref.as_ref(),
@@ -200,7 +209,7 @@ pub mod terminal_staking {
                     token::MintTo {
                         mint: ctx.accounts.reward_mint.to_account_info(),
                         to: ctx.accounts.user_reward_account.to_account_info(),
-                        authority: ctx.accounts.staking_pool.to_account_info(),
+                        authority: staking_pool_info,
                     },
                     signer_seeds,
                 ),
@@ -293,19 +302,26 @@ pub mod terminal_staking {
 
     /// Claim rewards without unstaking
     pub fn claim_rewards(ctx: Context<ClaimRewards>) -> Result<()> {
-        let stake_account = &mut ctx.accounts.stake_account;
-        let pool = &mut ctx.accounts.staking_pool;
         let clock = Clock::get()?;
 
-        require!(stake_account.is_staked, StakingError::NotStaked);
-        require!(stake_account.owner == ctx.accounts.owner.key(), StakingError::Unauthorized);
+        // Extract all values before any mutable borrows
+        let collection_ref = ctx.accounts.staking_pool.collection;
+        let pool_bump = ctx.accounts.staking_pool.bump;
+        let terminal_mint = ctx.accounts.stake_account.terminal_mint;
+        let stake_owner = ctx.accounts.stake_account.owner;
+        let is_staked = ctx.accounts.stake_account.is_staked;
+        let last_claim_timestamp = ctx.accounts.stake_account.last_claim_timestamp;
+        let rarity_multiplier = ctx.accounts.stake_account.rarity_multiplier;
+        let owner_key = ctx.accounts.owner.key();
 
-        let staking_duration = clock.unix_timestamp - stake_account.last_claim_timestamp;
-        let rewards = calculate_rewards(staking_duration, stake_account.rarity_multiplier)?;
+        // Validation checks using extracted values
+        require!(is_staked, StakingError::NotStaked);
+        require!(stake_owner == owner_key, StakingError::Unauthorized);
+
+        let staking_duration = clock.unix_timestamp - last_claim_timestamp;
+        let rewards = calculate_rewards(staking_duration, rarity_multiplier)?;
 
         if rewards > 0 {
-            let collection_ref = pool.collection;
-            let pool_bump = pool.bump;
             let pool_seeds = &[
                 b"pool",
                 collection_ref.as_ref(),
@@ -313,25 +329,33 @@ pub mod terminal_staking {
             ];
             let signer_seeds = &[&pool_seeds[..]];
 
-            token::mint_to(
-                CpiContext::new_with_signer(
-                    ctx.accounts.token_program.to_account_info(),
-                    token::MintTo {
-                        mint: ctx.accounts.reward_mint.to_account_info(),
-                        to: ctx.accounts.user_reward_account.to_account_info(),
-                        authority: ctx.accounts.staking_pool.to_account_info(),
-                    },
-                    signer_seeds,
-                ),
-                rewards,
-            )?;
+            // Create a separate scope for the CPI call
+            {
+                let staking_pool_info = ctx.accounts.staking_pool.to_account_info();
+                token::mint_to(
+                    CpiContext::new_with_signer(
+                        ctx.accounts.token_program.to_account_info(),
+                        token::MintTo {
+                            mint: ctx.accounts.reward_mint.to_account_info(),
+                            to: ctx.accounts.user_reward_account.to_account_info(),
+                            authority: staking_pool_info,
+                        },
+                        signer_seeds,
+                    ),
+                    rewards,
+                )?;
+            }
+
+            // Now we can safely take mutable borrows
+            let stake_account = &mut ctx.accounts.stake_account;
+            let pool = &mut ctx.accounts.staking_pool;
 
             stake_account.last_claim_timestamp = clock.unix_timestamp;
             pool.total_rewards_distributed += rewards;
 
             emit!(RewardsClaimed {
-                owner: ctx.accounts.owner.key(),
-                terminal: ctx.accounts.stake_account.terminal_mint,
+                owner: owner_key,
+                terminal: terminal_mint,
                 amount: rewards,
                 timestamp: clock.unix_timestamp,
             });
