@@ -1,15 +1,18 @@
 [toolchain]
-anchor_version = "0.31.1"
+anchor_version = "0.30.1"
 
 [programs.localnet]
+terminal_staking = "Zkc1y5YhcFi82Q6wmLjfreQd2nsS1eWBcxWVn3KCrP7"
+
+[programs.mainnet]
 terminal_staking = "Zkc1y5YhcFi82Q6wmLjfreQd2nsS1eWBcxWVn3KCrP7"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
-wallet = "./test-keypair.json"
+cluster = "mainnet"
+wallet = "./mainnet-wallet.json"
 
 [test]
 # Clone the metadata program and the executable account associated with it

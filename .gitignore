@@ -55,3 +55,4 @@ Thumbs.db
 # Test keypairs (keep secure)
 test-keypair.json
 id.json
+mainnet-wallet.json
