@@ -1,8 +1,8 @@
 [toolchain]
-anchor_version = "0.31.1"
+anchor_version = "0.30.1"
 
 [programs.localnet]
-sol_nft_staking = "3zPPaZhN3tAkSJhjcEcyT7kAM6b2stQmJf65Fw9sMZa3"
+terminal_staking = "Zkc1y5YhcFi82Q6wmLjfreQd2nsS1eWBcxWVn3KCrP7"
 
 [registry]
 url = "https://anchor.projectserum.com"

@@ -8,7 +8,7 @@ use mpl_core::{
     types::{Attribute, Attributes, FreezeDelegate, Plugin, PluginAuthority, PluginType, UpdateAuthority}, 
 };
 
-declare_id!("TermStk11111111111111111111111111111111111");
+declare_id!("Zkc1y5YhcFi82Q6wmLjfreQd2nsS1eWBcxWVn3KCrP7");
 
 // Reward rate: 1 $GOR per hour (3600 seconds)
 const REWARD_RATE_PER_SECOND: u64 = 1_000_000; // 1 token with 6 decimals per hour / 3600 seconds
